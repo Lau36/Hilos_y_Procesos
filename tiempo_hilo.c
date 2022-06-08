@@ -1,3 +1,6 @@
+#include <stdio.h>                                                             
+#include <pthread.h>                                                           
+#include <time.h>  
 time_t start;
 
 void *worker(void *data) {
@@ -5,7 +8,9 @@ void *worker(void *data) {
   printf("%d\n", end - start);
 }
 
-int main() {
+int main(){
    start=time();
-   pthread_create(thread_id,NULL, worker,NULL);
+   pthread_t thread_id;
+   pthread_create(&thread_id,NULL, &worker,NULL);
+   pthread_join(thread_id,NULL);
 }
