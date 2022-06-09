@@ -10,8 +10,8 @@ void *worker(void *data) {
 
 int main(){
    start=clock();
-   pthread_t hilo;
-   pthread_create(&hilo,NULL, &worker,NULL);
-   pthread_join(hilo,NULL);
+   pthread_t thread; //identificador del hilo
+   pthread_create(&thread, NULL, &worker, NULL); //crea el hilo 
+   pthread_join(thread, NULL);
 }
 
