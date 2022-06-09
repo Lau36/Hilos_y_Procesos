@@ -13,5 +13,6 @@ int main(){
    pthread_t thread; //identificador del hilo
    pthread_create(&thread, NULL, &worker, NULL); //crea el hilo 
    pthread_join(thread, NULL);
+   printf("Fin\n");
 }
 
