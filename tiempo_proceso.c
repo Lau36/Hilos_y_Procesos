@@ -3,10 +3,10 @@
 #include <unistd.h>
 
 int main(){
-time_t start=time();
+clock_t start;
 pid_t pid = fork();
 if (pid == 0) {
-  time_t end = time();
-  printf("%d\n", end - start);
+  clock_t end = clock();
+  printf("%ld\n", end - start);
   }
 }
