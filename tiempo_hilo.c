@@ -1,16 +1,17 @@
 #include <stdio.h>                                                             
 #include <pthread.h>                                                           
 #include <time.h>  
-time_t start;
+clock_t start;
 
 void *worker(void *data) {
-  time_t end = time();
-  printf("%d\n", end - start);
+  clock_t end = clock();
+  printf("%ld\n", end - start);
 }
 
 int main(){
-   start=time();
-   pthread_t thread_id;
-   pthread_create(&thread_id,NULL, &worker,NULL);
-   pthread_join(thread_id,NULL);
+   start=clock();
+   pthread_t hilo;
+   pthread_create(&hilo,NULL, &worker,NULL);
+   pthread_join(hilo,NULL);
 }
+
